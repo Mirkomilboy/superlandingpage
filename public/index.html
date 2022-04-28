@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/ico" href="assets/favicon.ico">
+    <title>Gutschein</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <main>
+        <!-- Hero section -->
+        <section class="bg-brand-light-blue sm:bg-hero bg-hero-mobile bg-cover bg-center">
+            <div class="max-w-7xl mx-auto text-white h-screen lg:py-17.5 sm:py-10 py-5 xl:px-0 sm:px-10 px-5">
+                <p class="font-bold sm:text-xl text-sm">
+                    Super-Gutscheincode.de
+                </p>
+
+                <div class="flex flex-col items-center sm:pt-16 pt-10">
+                    <div>
+                        <img class="sm:w-auto w-32 relative z-0" src="assets/logo.png" alt="">
+                    </div>
+                    <p class="sm:text-3xl text-xl max-w-lg text-center sm:px-1 pt-5">
+                        Sichere dir jetzt insgesamt 15 € für deine ersten 3 Bestellungen bei Super
+                    </p>
+                    <p class="text-center sm:text-xl text-sm sm:pt-12 pt-5">
+                        Einfach Gutscheincode beim <br class="sm:hidden block"> Bezahlen eingeben:
+                    </p>
+                    <div class="rounded-2.5 border-2 bg-white border-brand-gray drop-shadow-0.25 py-3 sm:px-6 px-5 sm:mt-9 sm:mb-10 my-8">
+                        <input id="myInput" disabled
+                            class="text-black font-bold sm:text-4xl text-2xl tracking-50.5 sm:w-64 w-[170px]"
+                            value="XX44TB5"></input>
+                    </div>
+
+                    <div class="max-w-lg w-full sm:px-4">
+                        <div class="relative">
+                            <a href="#"
+                                class="text-center block relative bg-brand-light-yellow rounded-5 font-bold sm:text-4xl text-2xl w-full transition ease-in-out sm:hover:translate-y-3 hover:translate-y-2 sm:pt-4 pt-3 sm:pb-5 pb-3.5 sm:px-8 px-5 z-10">
+                                Jetzt Gutschein einlösen
+                            </a>
+                            <div
+                                class="absolute bg-brand-dark-yellow rounded-5 left-0 sm:top-7 top-5 sm:h-16 h-12 w-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="max-w-lg flex sm:flex-row flex-col sm:items-start items-center sm:space-y-0 space-y-5 justify-between sm:w-full mt-10 px-4">
+                        <div class="relative">
+                            <button onclick="copyToClipboard()" type="button"
+                                class="flex items-center space-x-2.5 relative bg-brand-light-gray rounded-2.5 font-bold sm:text-sm text-xs transition ease-in-out hover:translate-y-1 h-10 px-10 z-10">
+                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M13.23 0.798721V4.92872C13.23 5.66878 13.8299 6.26872 14.57 6.26872H18.74C18.9416 6.26444 19.1217 6.14177 19.1996 5.95577C19.2775 5.76976 19.2384 5.55534 19.1 5.40872L14.1 0.408721C13.9549 0.245933 13.7211 0.195911 13.5222 0.285101C13.3232 0.37429 13.205 0.582123 13.23 0.798721ZM14.48 7.26872C13.2617 7.25774 12.2799 6.26702 12.28 5.04872V0.738721C12.28 0.490193 12.0785 0.288721 11.83 0.288721H9.41999C7.42624 0.288721 5.80999 1.90497 5.80999 3.89872V13.9687C5.80999 15.9625 7.42624 17.5787 9.41999 17.5787H15.64C17.6354 17.5787 19.2545 15.9641 19.26 13.9687V7.71872C19.2546 7.46858 19.0502 7.26866 18.8 7.26872H14.48ZM4.56999 14.3787C4.56998 16.7883 6.52041 18.7432 8.92999 18.7487L13.52 18.7587C12.862 19.9868 11.5832 20.7548 10.19 20.7587H4.51999C2.43235 20.7587 0.73999 19.0664 0.73999 16.9787V7.52872C0.73999 6.5262 1.13824 5.56474 1.84713 4.85586C2.55601 4.14697 3.51747 3.74872 4.51999 3.74872H4.62999C4.5952 3.93687 4.57514 4.12745 4.56999 4.31872V14.3787Z"
+                                        fill="white" />
+                                </svg>
+                                <span>
+                                    Gutscheincode kopieren
+                                </span>
+                            </button>
+                            <div class="absolute bg-brand-dark-gray rounded-2.5 left-0 top-2 h-10 w-full"></div>
+                        </div>
+                        <div class="relative sm:block hidden">
+                            <button type="button" onclick="openQrCode()"
+                                class="modal-btn flex items-center space-x-2.5 relative bg-brand-light-violet rounded-2.5 font-bold sm:text-sm text-xs transition ease-in-out hover:translate-y-1 h-10 px-10 z-10">
+                                <svg width="13" height="21" viewBox="0 0 13 21" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M2.36167 0.208418H10.6383C11.2551 0.196829 11.851 0.431503 12.2942 0.860506C12.7375 1.28951 12.9915 1.87746 13 2.49425V18.5059C12.9763 19.7881 11.9206 20.8099 10.6383 20.7917H2.36167C1.07941 20.8099 0.0237303 19.7881 0 18.5059V2.49425C0.0237303 1.21209 1.07941 0.190304 2.36167 0.208418ZM4.875 3.45842H8.125C8.57373 3.45842 8.9375 3.09465 8.9375 2.64592C8.9375 2.19719 8.57373 1.83342 8.125 1.83342H4.875C4.42627 1.83342 4.0625 2.19719 4.0625 2.64592C4.0625 3.09465 4.42627 3.45842 4.875 3.45842Z"
+                                        fill="white" />
+                                </svg>
+                                <span>
+                                    Ans Handy
+                                </span>
+                            </button>
+                            <div class="absolute bg-brand-dark-violet rounded-2.5 left-0 top-2 h-10 sm:w-full w-38">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entdecke die Super Städte -->
+        <section class="sm:block hidden">
+            <div class="max-w-7xl mx-auto sm:px-10 px-5 py-16">
+                <div class="space-y-10 sm:px-9">
+                    <div class="sm:flex items-center text-brand-black justify-between">
+                        <h3 class="md:text-5xl text-2xl font-bold">
+                            Entdecke die Super Städte
+                        </h3>
+                        <a class="sm:text-lg underline hover:no-underline mt-1" href="#">
+                            Deutschland
+                        </a>
+                    </div>
+
+                    <div class="grid sm:grid-cols-4 gap-5 text-brand-black">
+                        <div class="flex items-center h-fit space-x-2">
+                            <span>
+                                <img class="w-5" src="assets/GermanFlag.svg" alt="">
+                            </span>
+                            <span>
+                                Deutschland
+                            </span>
+                        </div>
+
+                        <div class="col-span-3 grid xl:grid-cols-3 sm:grid-cols-2 sm:gap-5 gap-4">
+                            <button
+                                class="flex justify-between items-center sm:text-2xl text-xl rounded border-2 border-brand-black border-opacity-10 w-full sm:px-7 px-5 sm:py-5 py-4">
+                                <span>
+                                    Berlin
+                                </span>
+                                <svg class="mt-1" width="8" height="15" viewBox="0 0 8 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 13.5L7 7.5L1 1.5" stroke="#202125" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button
+                                class="flex justify-between items-center sm:text-2xl text-xl rounded border-2 border-brand-black border-opacity-10 w-full sm:px-7 px-5 sm:py-5 py-4">
+                                <span>
+                                    Düsseldorf
+                                </span>
+                                <svg class="mt-1" width="8" height="15" viewBox="0 0 8 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 13.5L7 7.5L1 1.5" stroke="#202125" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button
+                                class="flex justify-between items-center sm:text-2xl text-xl rounded border-2 border-brand-black border-opacity-10 w-full sm:px-7 px-5 sm:py-5 py-4">
+                                <span>
+                                    Frankfurt
+                                </span>
+                                <svg class="mt-1" width="8" height="15" viewBox="0 0 8 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 13.5L7 7.5L1 1.5" stroke="#202125" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button
+                                class="flex justify-between items-center sm:text-2xl text-xl rounded border-2 border-brand-black border-opacity-10 w-full sm:px-7 px-5 sm:py-5 py-4">
+                                <span>
+                                    Hamburg
+                                </span>
+                                <svg class="mt-1" width="8" height="15" viewBox="0 0 8 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 13.5L7 7.5L1 1.5" stroke="#202125" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button
+                                class="flex justify-between items-center sm:text-2xl text-xl rounded border-2 border-brand-black border-opacity-10 w-full sm:px-7 px-5 sm:py-5 py-4">
+                                <span>
+                                    Hannover
+                                </span>
+                                <svg class="mt-1" width="8" height="15" viewBox="0 0 8 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 13.5L7 7.5L1 1.5" stroke="#202125" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button
+                                class="flex justify-between items-center sm:text-2xl text-xl rounded border-2 border-brand-black border-opacity-10 w-full sm:px-7 px-5 sm:py-5 py-4">
+                                <span>
+                                    Köln
+                                </span>
+                                <svg class="mt-1" width="8" height="15" viewBox="0 0 8 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 13.5L7 7.5L1 1.5" stroke="#202125" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button
+                                class="flex justify-between items-center sm:text-2xl text-xl rounded border-2 border-brand-black border-opacity-10 w-full sm:px-7 px-5 sm:py-5 py-4">
+                                <span>
+                                    München
+                                </span>
+                                <svg class="mt-1" width="8" height="15" viewBox="0 0 8 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 13.5L7 7.5L1 1.5" stroke="#202125" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Was ist Super -->
+        <section>
+            <div class="max-w-7xl mx-auto sm:px-10 px-5 sm:py-16 py-12">
+                <div class="grid lg:grid-cols-2 shadow-brand">
+                    <div class="lg:p-9 sm:px-9 sm:pt-12 sm:pb-16 px-5 pb-11">
+                        <div class="max-w-md lg:space-y-12 space-y-8 sm:pr-6">
+                            <p class="text-sm font-bold sm:block hidden">
+                                Was ist Super?
+                            </p>
+                            <h3 class="text-4xl font-bold sm:block hidden">
+                                Wohin du möchtest.
+                                <br>
+                                Mit wem du möchtest.
+                            </h3>
+                            <p class="text-lg sm:py-0 py-7">
+                                Entdeckt unglaublich einfach Neues mit Super und findet genau das Essen, wonach Ihr
+                                sucht. Wir liefern's Euch – schneller als je zuvor, zuverlässig und preiswert.
+                            </p>
+                            <div class="relative w-fit">
+                                <a href="#"
+                                    class="block relative bg-brand-light-blue text-white rounded-2.5 font-bold text-sm transition ease-in-out hover:translate-y-1 h-9 px-5 py-2 z-10">
+                                    <span>
+                                        Jetzt ausprobieren!
+                                    </span>
+                                </a>
+                                <div class="absolute bg-brand-dark-blue rounded-2.5 left-0 top-2 h-9 w-full"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative lg:row-auto row-start-1 lg:ml-auto">
+                        <img class="sm:block hidden w-full" src="assets/eating-pizza.png" alt="">
+                        <img class="sm:hidden block" src="assets/eating-pizza-mobile.png" alt="">
+
+                        <div
+                            class="absolute left-1/2 -translate-x-1/2 whitespace-nowrap top-1/2 -translate-y-1/2 text-center text-white sm:hidden block space-y-3">
+                            <p class="text-xs font-bold">
+                                Was ist Super?
+                            </p>
+                            <h3 class="text-2xl font-bold">
+                                Wohin du möchtest.
+                                <br>
+                                Mit wem du möchtest.
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beliebte Fragen -->
+        <section>
+            <div class="max-w-7xl mx-auto space-y-4 sm:px-10">
+                <div class="swiper">
+                    <div class="flex justify-between sm:px-0 px-5">
+                        <h3 class="sm:text-4xl text-2xl font-bold">
+                            Beliebte Fragen
+                        </h3>
+                        <div class="flex sm:space-x-2 space-x-8">
+                            <button role="button"
+                                class="swiper-prev-button text-brand-light-blue bg-brand-light-sky sm:p-2.5 p-2 rounded-full">
+                                <svg class="rotate-180" width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.6934 8.43535L10.6739 1.31199C10.2924 0.926615 9.73723 0.777079 9.21758 0.91971C8.69793 1.06234 8.29273 1.47547 8.15463 2.00348C8.01652 2.53149 8.16649 3.09415 8.54804 3.47953L12.9904 7.97742H1.54861C0.717876 7.97742 0.0444336 8.66083 0.0444336 9.50386C0.0444336 10.3469 0.717876 11.0303 1.54861 11.0303H12.9904L8.54804 15.5282C8.1184 15.9647 7.98997 16.6208 8.22256 17.1908C8.45515 17.7609 9.00302 18.1328 9.61099 18.1333C10.0147 18.1272 10.3985 17.9545 10.6739 17.655L17.6934 10.5317C18.28 9.9357 18.28 8.97025 17.6934 8.3743V8.43535Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </button>
+
+                            <button role="button"
+                                class="swiper-next-button text-brand-light-blue bg-brand-light-sky sm:p-2.5 p-2 rounded-full">
+                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.6934 8.43535L10.6739 1.31199C10.2924 0.926615 9.73723 0.777079 9.21758 0.91971C8.69793 1.06234 8.29273 1.47547 8.15463 2.00348C8.01652 2.53149 8.16649 3.09415 8.54804 3.47953L12.9904 7.97742H1.54861C0.717876 7.97742 0.0444336 8.66083 0.0444336 9.50386C0.0444336 10.3469 0.717876 11.0303 1.54861 11.0303H12.9904L8.54804 15.5282C8.1184 15.9647 7.98997 16.6208 8.22256 17.1908C8.45515 17.7609 9.00302 18.1328 9.61099 18.1333C10.0147 18.1272 10.3985 17.9545 10.6739 17.655L17.6934 10.5317C18.28 9.9357 18.28 8.97025 17.6934 8.3743V8.43535Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cards -->
+                    <div class="swiper-wrapper text-white py-2.5 sm:pl-0 pl-5">
+                        <a href="#"
+                            class="swiper-slide whitespace-nowrap rounded-2.5 bg-bottomInnerShadow1 bg-cover sm:px-6 px-4 sm:pb-8 pb-5 sm:pt-28 pt-20">
+                            <p class="uppercase sm:text-sm text-xs">
+                                artikel
+                            </p>
+                            <p class="font-bold lg:text-3xl sm:text-2xl">
+                                Beliebtes Fast Food
+                            </p>
+                            <p class="lg:text-base sm:text-sm text-xs">
+                                Das Beste aus Amerika und Europa
+                            </p>
+                        </a>
+                        <a href="#"
+                            class="swiper-slide whitespace-nowrap rounded-2.5 bg-bottomInnerShadow2 bg-cover sm:px-6 px-4 sm:pb-8 pb-5 sm:pt-28 pt-20">
+                            <p class="uppercase sm:text-sm text-xs">
+                                artikel
+                            </p>
+                            <p class="font-bold lg:text-3xl sm:text-2xl">
+                                Beliebtes Burger
+                            </p>
+                            <p class="lg:text-base sm:text-sm text-xs">
+                                Das Beste aus Amerika und Europa
+                            </p>
+                        </a>
+                        <a href="#"
+                            class="swiper-slide whitespace-nowrap rounded-2.5 bg-bottomInnerShadow3 bg-cover sm:px-6 px-4 sm:pb-8 pb-5 sm:pt-28 pt-20">
+                            <p class="uppercase sm:text-sm text-xs">
+                                artikel
+                            </p>
+                            <p class="font-bold lg:text-3xl sm:text-2xl">
+                                Beliebtes Pizzen
+                            </p>
+                            <p class="lg:text-base sm:text-sm text-xs">
+                                Das Beste aus Amerika und Europa
+                            </p>
+                        </a>
+                        <a href="#"
+                            class="swiper-slide whitespace-nowrap rounded-2.5 bg-bottomInnerShadow3 bg-cover sm:px-6 px-4 sm:pb-8 pb-5 sm:pt-28 pt-20">
+                            <p class="uppercase sm:text-sm text-xs">
+                                artikel
+                            </p>
+                            <p class="font-bold sm:text-3xl">
+                                Beliebtes Pizzen
+                            </p>
+                            <p class="sm:text-base text-xs">
+                                Das Beste aus Amerika und Europa
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Es ist kinderleicht. -->
+        <section class="bg-gray-100 sm:mt-24 sm:mb-8 mt-12">
+            <div class="max-w-7xl mx-auto sm:px-10 px-5">
+                <div class="relative xl:pl-23 xl:pr-16">
+                    <div
+                        class="grid lg:grid-cols-2 items-center lg:justify-start justify-center sm:pt-12 pt-6 sm:pb-14 pb-9">
+                        <div
+                            class="max-w-md flex flex-col lg:items-start items-center lg:text-left text-center lg:pr-6 sm:space-y-12 space-y-5">
+                            <h3 class="sm:text-4xl text-2xl font-bold">
+                                Es ist kinderleicht. <br> Löse ihn ein und geniße!
+                            </h3>
+                            <p class="sm:text-lg">
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                accusam et justo duo dolores et ea rebum.
+                            </p>
+                            <div class="relative sm:w-fit w-[310px]">
+                                <a href="#"
+                                    class="block relative bg-brand-light-blue text-white rounded-2.5 font-bold text-sm transition ease-in-out hover:translate-y-1 h-9 sm:w-auto w-full px-5 py-2 z-10">
+                                    <span>
+                                        Jetzt ausprobieren!
+                                    </span>
+                                </a>
+                                <div class="absolute bg-brand-dark-blue rounded-2.5 left-0 top-2 h-9 w-full"></div>
+                            </div>
+                        </div>
+
+                        <div class="lg:pt-0 pt-12 lg:space-y-0 space-y-8">
+                            <div class="lg:hidden flex justify-center">
+                                <div class="relative">
+                                    <img class="relative z-10 w-64" src="assets/Iphone'sBody.png">
+                                    <div class="absolute z-0 top-2 left-2 h-full overflow-hidden">
+                                        <video class="w-[96%] h-[96%] object-cover rounded-3xl" src="assets/video.mp4"
+                                            autoplay muted loop></video>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="flex lg:flex-col flex-row lg:items-end items-center lg:justify-start justify-center lg:gap-8 gap-5">
+                                <a href="#" class="hover:scale-95 transition ease-linear">
+                                    <img class="sm:w-auto w-32" src="assets/appStore.png">
+                                </a>
+                                <a href="#" class="hover:scale-95 transition ease-linear">
+                                    <img class="sm:w-auto w-32" src="assets/googlePlay.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:block hidden absolute left-1/2 top-1/2 -translate-y-1/2">
+                        <div class="relative">
+                            <img class="relative z-10 w-64" src="assets/Iphone'sBody.png">
+                            <div class="absolute z-0 top-2 left-2 h-full overflow-hidden">
+                                <video class="w-[96%] h-[96%] object-cover rounded-3xl" src="assets/video.mp4" autoplay
+                                    muted loop></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Last Section -->
+        <section>
+            <div class="max-w-7xl mx-auto sm:px-10 px-5 sm:py-20 py-8">
+                <p class="max-w-3xl mx-auto sm:text-2xl text-center sm:px-8">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100">
+        <div class="max-w-8xl mx-auto grid sm:grid-cols-3 grid-cols-2 items-center sm:py-8 py-6 sm:px-12 px-5">
+            <div class="sm:col-span-1 col-span-2 text-center sm:mt-0 mt-9">
+                <p class="text-xs sm:text-sm font-bold">
+                    Super-Gutscheincode.de
+                </p>
+                <p class="text-xs">
+                    © 2022 Super-gutscheincode.de
+                </p>
+            </div>
+
+            <div
+                class="flex space-x-10 sm:justify-self-center justify-self-end sm:row-auto row-start-1 sm:col-auto col-start-2">
+                <a href="#" class="transition hover:scale-110 hover:-translate-y-1 ease-linear">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M6 0H13.7C17.0137 0 19.7 2.68629 19.7 6V13.7C19.7 17.0137 17.0137 19.7 13.7 19.7H6C2.68629 19.7 0 17.0137 0 13.7V6C0 2.68629 2.68629 0 6 0ZM18.2 6C18.1945 3.517 16.183 1.5055 13.7 1.5H6C3.517 1.5055 1.5055 3.517 1.5 6V13.7C1.5055 16.183 3.517 18.1945 6 18.2H13.7C16.183 18.1945 18.1945 16.183 18.2 13.7V6Z"
+                            fill="#333333" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.55 9.85005C5.5555 7.47751 7.47746 5.55555 9.85 5.55005C12.2225 5.55555 14.1445 7.47751 14.15 9.85005C14.15 12.2249 12.2248 14.15 9.85 14.15C7.47518 14.15 5.55 12.2249 5.55 9.85005ZM12.65 9.85005C12.65 8.30365 11.3964 7.05005 9.85 7.05005C8.30588 7.05553 7.05549 8.30593 7.05 9.85005C7.05 11.3964 8.30361 12.65 9.85 12.65C11.3964 12.65 12.65 11.3964 12.65 9.85005Z"
+                            fill="#333333" />
+                        <path
+                            d="M13.51 4.50504C13.51 3.90582 13.9958 3.42004 14.595 3.42004C15.1942 3.42004 15.68 3.90582 15.68 4.50504C15.68 5.10427 15.1942 5.59004 14.595 5.59004C13.9958 5.59004 13.51 5.10427 13.51 4.50504Z"
+                            fill="#333333" />
+                    </svg>
+                </a>
+
+                <a href="#" class="transition hover:scale-110 hover:-translate-y-1 ease-linear">
+                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.76 7.91003H13.76C13.889 7.91006 14.0127 7.85812 14.103 7.76592C14.1933 7.67373 14.2427 7.54906 14.24 7.42003V5.82003C14.2409 5.5698 14.0494 5.36088 13.8 5.34003C13.8 5.34003 13.09 5.28003 12.22 5.28003C10.08 5.28003 8.89999 6.55003 8.89999 8.85003V10.62H6.92999C6.80186 10.6173 6.67816 10.667 6.58754 10.7576C6.49692 10.8482 6.44723 10.9719 6.44999 11.1V12.56C6.44723 12.6882 6.49692 12.8119 6.58754 12.9025C6.67816 12.9931 6.80186 13.0428 6.92999 13.04H8.86999V18.7H11.79V13.04H13.55C13.7917 13.0376 13.9955 12.8593 14.03 12.62L14.21 11.16C14.2283 11.0218 14.1844 10.8826 14.09 10.78C13.9984 10.6776 13.8674 10.6194 13.73 10.62H11.79V8.91003C11.7897 8.36925 12.2195 7.92625 12.76 7.91003Z"
+                            fill="#333333" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0.699997 9.91C0.699997 4.43686 5.13686 0 10.61 0C13.2383 0 15.7589 1.04409 17.6174 2.90257C19.4759 4.76106 20.52 7.2817 20.52 9.91C20.52 15.3831 16.0831 19.82 10.61 19.82C5.13686 19.82 0.699997 15.3831 0.699997 9.91ZM19.02 9.91C19.02 5.26529 15.2547 1.5 10.61 1.5C5.96984 1.511 2.21099 5.26985 2.19999 9.91C2.19999 14.5547 5.96528 18.32 10.61 18.32C15.2547 18.32 19.02 14.5547 19.02 9.91Z"
+                            fill="#333333" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="flex sm:space-x-16 space-x-6 sm:justify-self-end sm:row-auto row-start-1">
+                <button type="button" onclick="openModal()" class="text-xs hover:underline">
+                    Datenschutzerklärung
+                </button>
+                <button type="button" onclick="openModal()" class="text-xs hover:underline">
+                    Impressum
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Impressum Modal -->
+    <div id="modal-impressum" class="hidden flex justify-center items-center font-omnes fixed top-0 left-0 w-full h-full z-50">
+        <div onclick="removeOverlay()" class="modal-overlay absolute w-full h-full bg-brand-dark-gray opacity-90"></div>
+
+        <div class="bg-white relative lg:w-[782px] sm:w-[700px] w-10/12 sm:h-[896px] h-3/4 overflow-hidden rounded-5 sm:p-10 p-5 z-50">
+
+            <!-- Close btn -->
+            <button type="button" onclick="closeModal()" class="absolute sm:top-9 top-6 sm:right-9 right-6">
+                <svg class="sm:w-auto sm:h-auto w-5 h-5" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M25.8706 23.6847L15.3475 13.1673L25.8706 2.72738C26.398 2.11659 26.3694 1.19999 25.8051 0.623679C25.2407 0.0473627 24.3308 0.00561875 23.7167 0.527871L13.1628 10.8904L2.79355 0.450424C2.19349 -0.150141 1.22437 -0.150141 0.624308 0.450424C0.333057 0.741265 0.169232 1.13717 0.169232 1.55018C0.169232 1.96319 0.333057 2.35909 0.624308 2.64993L10.9782 13.0744L0.455077 23.4988C0.163825 23.7897 0 24.1856 0 24.5986C0 25.0116 0.163825 25.4075 0.455077 25.6983C0.745415 25.9883 1.13846 26.1499 1.54739 26.1475C1.94882 26.1499 2.33529 25.9943 2.62432 25.7138L13.1628 15.2584L23.7167 25.8842C24.0071 26.1741 24.4001 26.3358 24.809 26.3334C25.2126 26.3317 25.5994 26.1704 25.886 25.8842C26.1752 25.5913 26.3363 25.1942 26.3334 24.7812C26.3305 24.3682 26.1639 23.9735 25.8706 23.6847Z"
+                        fill="black" />
+                </svg>
+            </button>
+
+            <div class="max-w-2xl mx-auto px-2.5">
+                <h2 class="text-center sm:text-xl text-lg font-bold">
+                    Datenschutzerklärung
+                </h2>
+
+                <div class="text-xs lg:h-[750px] sm:h-[780px] h-[670px] modal overflow-y-scroll space-y-3.5 pr-2 lg:mt-8 mt-5">
+                    <h4>
+                        Datenschutz
+                    </h4>
+                    <p class="flex flex-col space-y-3.5">
+                        <span>
+                            Als Webseitenbetreiber nehmen wir den Schutz aller persönlichen Daten sehr ernst. Alle
+                            personenbezogenen Informationen werden vertraulich und gemäß den gesetzlichen Vorschriften
+                            behandelt, wie in dieser Datenschutzerklärung erläutert.
+                        </span>
+                        <span>
+                            Unserer Webseite kann selbstverständlich genutzt werden, ohne dass Sie persönliche Daten
+                            angeben. Wenn jedoch zu irgendeinem Zeitpunkt persönliche Daten wie z.B. Name, Adresse oder
+                            E-Mail abgefragt werden, wird dies auf freiwilliger Basis geschehen. Niemals werden von uns
+                            erhobene Daten ohne Ihre spezielle Genehmigung an Dritte weitergegeben.
+                        </span>
+                        <span>
+                            Datenübertragung im Internet, wie zum Beispiel über E-Mail, kann immer Sicherheitslücken
+                            aufweisen. Der komplette Schutz der Daten ist im Internet nicht möglich.
+                        </span>
+                    </p>
+                    <h4>
+                        Auskunft, Löschung, Sperrung
+                    </h4>
+                    <p>
+                        Zu jedem Zeitpunkt können Sie sich über die personenbezogenen Daten, deren Herkunft und
+                        Empfänger und den Nutzen der Datenverarbeitung informieren und unentgeltlich eine Korrektur,
+                        Sperrung oder Löschung dieser Daten verlangen. Bitte nutzen Sie dafür die im Impressum
+                        angegebenen Kontaktwege. Für weitere Fragen zum Thema stehen wir Ihnen ebenfalls jederzeit zur
+                        Verfügung.
+                    </p>
+                    <h4>
+                        Server-Log-Files
+                    </h4>
+                    <p>
+                        Der Seiten-Provider erhebt und speichert automatisch Daten in Server-Log Files, die von Ihrem
+                        Browser an uns übermittelt werden. Diese Daten enthalten:
+                    </p>
+                    <ul>
+                        <li>
+                            – Browsertyp/ Browserversion
+                        </li>
+                        <li>
+                            – Betriebssystem des Rechners
+                        </li>
+                        <li>
+                            – Referrer URL
+                        </li>
+                        <li>
+                            – Hostname des zugreifenden Rechners
+                        </li>
+                        <li>
+                            – Uhrzeit der Serveranfrage
+                        </li>
+                    </ul>
+                    <p>
+                        Diese Daten sind nicht personenbezogen. Es erfolgt keine Zusammenführung dieser Daten mit
+                        anderen Datenquellen. Wenn uns konkrete Anhaltspunkte für eine rechtswidrige Nutzung bekannt
+                        werden behalten wir uns das Recht vor, diese Daten nachträglich zu überprüfen.
+                    </p>
+                    <h4>
+                        Cookies
+                    </h4>
+                    <p class="flex flex-col space-y-3.5">
+                        <span>
+                            Viele Internetseiten verwenden Cookies. Cookies sind unschädlich für Ihren Rechner und
+                            virenfrei. Sie dienen dazu, Internet-Angebote für die Besucher einer Webseite freundlicher,
+                            effektiver und sicherer zu machen. Cookies sind kleine Textdateien, die auf Ihrem Computer
+                            abgelegt werden und die Ihr Browser verwendet.
+                        </span>
+                        <span>
+                            Wir verwenden in der Regel so genannte „Session-Cookies“. Diese werden nach Verlassen unserer
+                            Seite automatisch gelöscht. Andere Cookies bleiben auf Ihrem Computer gespeichert, bis Sie diese
+                            löschen. Diese Cookies helfen dabei, Ihren Rechner beim nächsten Besuch wiederzuerkennen.
+                        </span>
+                        <span>
+                            Über die Browsereinstellungen können sie festlegen, dass Sie über neue Cookies informiert werden
+                            und Cookies jeweils annehmen müssen. Ebenso können Sie die Annahme von Cookies für bestimmte
+                            Fälle oder generell ausschließen oder das automatische Löschen der Cookies beim Schließen des
+                            Browser aktivieren. Werden Cookies desaktiviert, kann die Funktionalität unserer Website
+                            eingeschränkt sein.
+                        </span>    
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Qr code modal -->
+    <div id="modal-qr" class="hidden flex justify-center items-center font-omnes fixed top-0 left-0 w-full h-full z-50">
+        <div onclick="removeOverlay()" class="modal-overlay absolute w-full h-full bg-brand-dark-gray opacity-90"></div>
+
+        <div class="bg-white modal relative w-[440px] h-[437px] rounded-5 p-10 z-50">
+
+            <!-- Close btn -->
+            <button type="button" onclick="closeModal()" class="modal-btn absolute top-9 right-9">
+                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M25.8706 23.6847L15.3475 13.1673L25.8706 2.72738C26.398 2.11659 26.3694 1.19999 25.8051 0.623679C25.2407 0.0473627 24.3308 0.00561875 23.7167 0.527871L13.1628 10.8904L2.79355 0.450424C2.19349 -0.150141 1.22437 -0.150141 0.624308 0.450424C0.333057 0.741265 0.169232 1.13717 0.169232 1.55018C0.169232 1.96319 0.333057 2.35909 0.624308 2.64993L10.9782 13.0744L0.455077 23.4988C0.163825 23.7897 0 24.1856 0 24.5986C0 25.0116 0.163825 25.4075 0.455077 25.6983C0.745415 25.9883 1.13846 26.1499 1.54739 26.1475C1.94882 26.1499 2.33529 25.9943 2.62432 25.7138L13.1628 15.2584L23.7167 25.8842C24.0071 26.1741 24.4001 26.3358 24.809 26.3334C25.2126 26.3317 25.5994 26.1704 25.886 25.8842C26.1752 25.5913 26.3363 25.1942 26.3334 24.7812C26.3305 24.3682 26.1639 23.9735 25.8706 23.6847Z"
+                        fill="black" />
+                </svg>
+
+            </button>
+
+            <div class="flex flex-col items-center space-y-9 pt-6">
+                <p class="text-3xl font-bold text-center">
+                    Jetzt Scannen
+                </p>
+
+                <div>
+                    <img src="assets/qrCode.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- Local JS -->
+    <script src="app.js"></script>
+</body>
+
+</html>

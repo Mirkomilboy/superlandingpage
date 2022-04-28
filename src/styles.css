@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Omnes';
+    src: url('../fonts/Omnes.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.modal::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background-color: #C4C4C4;
+    border-radius: 30px;
+}
+
+.modal::-webkit-scrollbar-track-piece:end {
+    margin-bottom: 90px; 
+}
+
+.modal::-webkit-scrollbar-track-piece:start {
+    margin-top: 90px;
+}
+
+body {
+    @apply font-omnes
+}
+
+button[disabled] {
+    @apply text-brand-btnDisabled
+}
