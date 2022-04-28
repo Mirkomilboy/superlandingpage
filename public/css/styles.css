@@ -384,6 +384,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   scrollbar-color: initial;
   scrollbar-width: initial;
 }
+    @font-face {
+        font-family: 'Omnes';
+        src: url('../fonts/Omnes.ttf') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Omnes';
+        src: url('../fonts/Omnes-Bold.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
 
 *, ::before, ::after {
   --tw-translate-x: 0;
@@ -441,8 +456,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .left-0 {
   left: 0px;
 }
-.top-5 {
-  top: 1.25rem;
+.top-4 {
+  top: 1rem;
 }
 .top-2 {
   top: 0.5rem;
@@ -471,12 +486,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .right-9 {
   right: 2.25rem;
 }
-.top-3 {
-  top: 0.75rem;
-}
-.top-4 {
-  top: 1rem;
-}
 .z-0 {
   z-index: 0;
 }
@@ -501,10 +510,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 .my-6 {
   margin-top: 1.5rem;
@@ -540,6 +545,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-screen {
   height: 100vh;
 }
+.h-full {
+  height: 100%;
+}
 .h-12 {
   height: 3rem;
 }
@@ -553,9 +561,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-9 {
   height: 2.25rem;
-}
-.h-full {
-  height: 100%;
 }
 .h-\[96\%\] {
   height: 96%;
@@ -897,11 +902,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pr-4 {
   padding-right: 1rem;
 }
-.pt-10 {
-  padding-top: 2.5rem;
-}
-.pt-5 {
-  padding-top: 1.25rem;
+.pt-4 {
+  padding-top: 1rem;
 }
 .pt-3 {
   padding-top: 0.75rem;
@@ -935,12 +937,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pr-2 {
   padding-right: 0.5rem;
-}
-.pt-8 {
-  padding-top: 2rem;
-}
-.pt-4 {
-  padding-top: 1rem;
 }
 .text-center {
   text-align: center;
@@ -1062,14 +1058,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --scrollbar-thumb: #9ca3af !important;
 }
 
-@font-face {
-    font-family: 'Omnes';
-    src: url('../fonts/Omnes.ttf') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 .modal::-webkit-scrollbar {
     width: 5px;
 }
@@ -1139,10 +1127,6 @@ button[disabled] {
 
 @media (min-width: 640px) {
 
-  .sm\:top-7 {
-    top: 1.75rem;
-  }
-
   .sm\:top-6 {
     top: 1.5rem;
   }
@@ -1167,16 +1151,12 @@ button[disabled] {
     margin-top: 2.25rem;
   }
 
-  .sm\:mb-10 {
-    margin-bottom: 2.5rem;
+  .sm\:mb-8 {
+    margin-bottom: 2rem;
   }
 
   .sm\:mt-24 {
     margin-top: 6rem;
-  }
-
-  .sm\:mb-8 {
-    margin-bottom: 2rem;
   }
 
   .sm\:mt-0 {
@@ -1205,10 +1185,6 @@ button[disabled] {
 
   .sm\:h-\[780px\] {
     height: 780px;
-  }
-
-  .sm\:h-14 {
-    height: 3.5rem;
   }
 
   .sm\:w-auto {
@@ -1380,10 +1356,6 @@ button[disabled] {
     padding-right: 3rem;
   }
 
-  .sm\:pt-12 {
-    padding-top: 3rem;
-  }
-
   .sm\:pt-8 {
     padding-top: 2rem;
   }
@@ -1394,6 +1366,10 @@ button[disabled] {
 
   .sm\:pb-4 {
     padding-bottom: 1rem;
+  }
+
+  .sm\:pt-12 {
+    padding-top: 3rem;
   }
 
   .sm\:pb-16 {
@@ -1420,13 +1396,14 @@ button[disabled] {
     padding-bottom: 3.5rem;
   }
 
-  .sm\:pt-10 {
-    padding-top: 2.5rem;
-  }
-
   .sm\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .sm\:text-3xl {
@@ -1442,11 +1419,6 @@ button[disabled] {
   .sm\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
-  }
-
-  .sm\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 
   .sm\:text-4xl {
@@ -1467,22 +1439,14 @@ button[disabled] {
 
 @media (min-width: 768px) {
 
-  .md\:pt-14 {
-    padding-top: 3.5rem;
-  }
-
-  .md\:pt-12 {
-    padding-top: 3rem;
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
-  }
-
-  .md\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 }
 
@@ -1554,10 +1518,6 @@ button[disabled] {
 
   .lg\:p-9 {
     padding: 2.25rem;
-  }
-
-  .lg\:pt-16 {
-    padding-top: 4rem;
   }
 
   .lg\:pr-6 {
