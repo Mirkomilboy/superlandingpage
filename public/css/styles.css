@@ -380,6 +380,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
+* {
+  scrollbar-color: initial;
+  scrollbar-width: initial;
+}
+
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -510,6 +515,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-5 {
   margin-top: 1.25rem;
 }
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
 .block {
   display: block;
 }
@@ -544,9 +552,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-\[96\%\] {
   height: 96%;
-}
-.h-3\/4 {
-  height: 75%;
 }
 .h-5 {
   height: 1.25rem;
@@ -816,11 +821,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-2 {
   padding: 0.5rem;
 }
-.p-5 {
-  padding: 1.25rem;
-}
 .p-10 {
   padding: 2.5rem;
+}
+.p-5 {
+  padding: 1.25rem;
 }
 .py-5 {
   padding-top: 1.25rem;
@@ -1012,6 +1017,68 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ease-linear {
   transition-timing-function: linear;
 }
+.scrollbar {
+  --scrollbar-track: initial;
+  --scrollbar-thumb: initial;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  overflow: overlay;
+}
+.scrollbar.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.scrollbar.overflow-y-hidden {
+  overflow-y: hidden;
+}
+.scrollbar::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track);
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+}
+.scrollbar {
+  scrollbar-width: auto;
+}
+.scrollbar::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+.scrollbar-thin {
+  --scrollbar-track: initial;
+  --scrollbar-thumb: initial;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  overflow: overlay;
+}
+.scrollbar-thin.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.scrollbar-thin.overflow-y-hidden {
+  overflow-y: hidden;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track);
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+}
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollbar-track-gray-\31 00 {
+  --scrollbar-track: #f3f4f6 !important;
+}
+.scrollbar-thumb-gray-\34 00 {
+  --scrollbar-thumb: #9ca3af !important;
+}
+.scrollbar-thumb-gray-\35 00 {
+  --scrollbar-thumb: #6b7280 !important;
+}
+.scrollbar-thumb-gray-\39 00 {
+  --scrollbar-thumb: #111827 !important;
+}
 
 @font-face {
     font-family: 'Omnes';
@@ -1102,6 +1169,10 @@ button[disabled] {
     right: 2.25rem;
   }
 
+  .sm\:top-6 {
+    top: 1.5rem;
+  }
+
   .sm\:col-span-1 {
     grid-column: span 1 / span 1;
   }
@@ -1148,10 +1219,6 @@ button[disabled] {
 
   .sm\:h-16 {
     height: 4rem;
-  }
-
-  .sm\:h-\[896px\] {
-    height: 896px;
   }
 
   .sm\:h-auto {

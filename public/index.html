@@ -456,13 +456,13 @@
     </footer>
 
     <!-- Impressum Modal -->
-    <div id="modal-impressum" class="hidden flex justify-center items-center font-omnes fixed top-0 left-0 w-full h-full z-50">
+    <div id="modal-impressum" class="hidden flex justify-center items-center font-omnes fixed top-0 left-0 w-full h-screen z-50 p-10">
         <div onclick="removeOverlay()" class="modal-overlay absolute w-full h-full bg-brand-dark-gray opacity-90"></div>
 
-        <div class="bg-white relative lg:w-[782px] sm:w-[700px] w-10/12 sm:h-[896px] h-3/4 overflow-hidden rounded-5 sm:p-10 p-5 z-50">
-
-            <!-- Close btn -->
-            <button type="button" onclick="closeModal()" class="absolute sm:top-9 top-6 sm:right-9 right-6">
+        <div class="lg:w-[782px] sm:w-[700px] w-10/12 h-full bg-white relative rounded-5 sm:p-10 p-5 z-50">
+           <div class="h-full overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 mt-10">
+                <!-- Close btn -->
+            <button type="button" onclick="closeModal()" class="absolute sm:top-6 top-6 sm:right-9 right-6">
                 <svg class="sm:w-auto sm:h-auto w-5 h-5" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M25.8706 23.6847L15.3475 13.1673L25.8706 2.72738C26.398 2.11659 26.3694 1.19999 25.8051 0.623679C25.2407 0.0473627 24.3308 0.00561875 23.7167 0.527871L13.1628 10.8904L2.79355 0.450424C2.19349 -0.150141 1.22437 -0.150141 0.624308 0.450424C0.333057 0.741265 0.169232 1.13717 0.169232 1.55018C0.169232 1.96319 0.333057 2.35909 0.624308 2.64993L10.9782 13.0744L0.455077 23.4988C0.163825 23.7897 0 24.1856 0 24.5986C0 25.0116 0.163825 25.4075 0.455077 25.6983C0.745415 25.9883 1.13846 26.1499 1.54739 26.1475C1.94882 26.1499 2.33529 25.9943 2.62432 25.7138L13.1628 15.2584L23.7167 25.8842C24.0071 26.1741 24.4001 26.3358 24.809 26.3334C25.2126 26.3317 25.5994 26.1704 25.886 25.8842C26.1752 25.5913 26.3363 25.1942 26.3334 24.7812C26.3305 24.3682 26.1639 23.9735 25.8706 23.6847Z"
@@ -560,6 +560,7 @@
                     </p>
                 </div>
             </div>
+           </div>
         </div>
     </div>
 
